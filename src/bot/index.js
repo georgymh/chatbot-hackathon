@@ -72,7 +72,7 @@ const getResponsesForMessage = ({message, userKey}) => {
     } else if(message.text === 'random') {
       wiki.getRandomWikiArticleLink()
         .then(link => {
-          resolve([defaultResponses.hereYouGo, link]);
+          resolve([defaultResponses.hereYouGo, userKey]);
         }).catch(() => {
           resolve([defaultResponses.failure])
         })
