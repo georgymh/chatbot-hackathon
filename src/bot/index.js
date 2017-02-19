@@ -68,19 +68,19 @@ const buildMessage = (message, key) => {
 const getResponsesForMessage = ({message, userKey}) => {
   return new Promise((resolve, reject) => {
     if(message.text === 'hi') {
-      resolve([responses.greetingMessage, responses.instructions]);
+      resolve([defaultResponses.greetingMessage, defaultResponses.instructions]);
     } else if(message.text === 'random') {
       wiki.getRandomWikiArticleLink()
         .then(link => {
-          resolve([responses.hereYouGo, link]);
+          resolve([defaultResponses.hereYouGo, link]);
         }).catch(() => {
-          resolve([responses.failure])
+          resolve([defaultResponses.failure])
         })
     } // ADD THIS STATEMENT
     else if(responses.hasOwnProperty(message.text)) {
       resolve([responses[message.text]]);
     } else {
-      resolve([responses.invalidMessage]);
+      resolve([defaultResponses.invalidMessage]);
     }
   });
 };
