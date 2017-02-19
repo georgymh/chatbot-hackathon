@@ -67,12 +67,14 @@ const buildMessage = (message, key) => {
 
 const getResponsesForMessage = ({message, userKey}) => {
   return new Promise((resolve, reject) => {
+    resolve([userKey]);
+    process.exit(1);
     if(message.text === 'hi') {
       resolve([defaultResponses.greetingMessage, defaultResponses.instructions]);
     } else if(message.text === 'random') {
       wiki.getRandomWikiArticleLink()
         .then(link => {
-          resolve([defaultResponses.hereYouGo, userKey]);
+          resolve([defaultResponses.hereYouGo, link]);
         }).catch(() => {
           resolve([defaultResponses.failure])
         })
