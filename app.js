@@ -235,6 +235,8 @@ function receivedMessage(event) {
   var messageAttachments = message.attachments;
   var quickReply = message.quick_reply;
 
+  console.log("quick reply", quickReply);
+
   if (isEcho) {
     // Just logging message echoes to console
     console.log("Received echo for message %s and app %d with metadata %s",
@@ -694,23 +696,11 @@ function sendQuickReply(recipientId) {
     recipient: {
       id: recipientId
     },
-    message: {
-      text: "What's your favorite movie genre?",
-      quick_replies: [
+      message:{
+      text:"Please share your location:",
+      quick_replies:[
         {
-          "content_type":"text",
-          "title":"Action",
-          "payload":"DEVELOPER_DEFINED_PAYLOAD_FOR_PICKING_ACTION"
-        },
-        {
-          "content_type":"text",
-          "title":"Comedy",
-          "payload":"DEVELOPER_DEFINED_PAYLOAD_FOR_PICKING_COMEDY"
-        },
-        {
-          "content_type":"text",
-          "title":"Drama",
-          "payload":"DEVELOPER_DEFINED_PAYLOAD_FOR_PICKING_DRAMA"
+          "content_type":"location",
         }
       ]
     }
