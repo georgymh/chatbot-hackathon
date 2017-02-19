@@ -2,5 +2,5 @@ var messengerPageToken = process.env.MESSENGER_TOKEN || 'EAAUaNnBkuR4BAN12Ke8qTO
 
 module.exports = {
   messengerPageToken: messengerPageToken,
-  messengerVerifyToken: 'TOKEN'
+  messengerVerifyToken: 'thisisatest'
 };
