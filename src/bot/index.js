@@ -76,6 +76,9 @@ const getResponsesForMessage = ({message, userKey}) => {
         }).catch(() => {
           resolve([responses.failure])
         })
+    } // ADD THIS STATEMENT
+    else if(responses.hasOwnProperty(message.text)) {
+      resolve([responses[message.text]]);
     } else {
       resolve([responses.invalidMessage]);
     }
